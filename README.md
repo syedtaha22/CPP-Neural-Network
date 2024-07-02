@@ -1,4 +1,5 @@
-## Advanced Neural Network Theory and Implementation
+## Neural Network Theory and Implementation in C++
+
 
 ### Abstract
 
