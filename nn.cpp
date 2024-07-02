@@ -3,6 +3,9 @@
 #include <cmath>
 #include <fstream> // For file operations
 
+constexpr int layer_one_units = 10;
+constexpr int layer_two_units = 10;
+
 // ReLU activation function: Returns max(0, x) where x is the input value.
 double relu(const double &x) { return x > 0 ? x : 0; }
 
@@ -95,9 +98,9 @@ public:
 class Model
 {
 public:
-    Dense_Layer<1, 10> layer1;       // First hidden layer
-    Dense_Layer<10, 10> layer2;      // Second hidden layer
-    Dense_Layer<10, 1> output_layer; // Output layer
+    Dense_Layer<1, layer_one_units> layer1;               // First hidden layer
+    Dense_Layer<layer_one_units, layer_two_units> layer2; // Second hidden layer
+    Dense_Layer<layer_two_units, 1> output_layer;         // Output layer
 
     // Constructor initializes layers
     Model() : layer1(true), layer2(true), output_layer(false) {} // ReLU for hidden layers, linear for output layer
@@ -116,10 +119,10 @@ public:
         std::vector<double> output_errors(1);
         output_errors[0] = target[0] - output_layer.outputs[0];
 
-        std::vector<double> layer2_errors(10);
+        std::vector<double> layer2_errors(layer_two_units);
         output_layer.backward(output_errors, layer2_errors, learning_rate);
 
-        std::vector<double> layer1_errors(10);
+        std::vector<double> layer1_errors(layer_one_units);
         layer2.backward(layer2_errors, layer1_errors, learning_rate);
 
         std::vector<double> input_errors(1);
