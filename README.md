@@ -1,11 +1,11 @@
-## Neural Network Theory and Implementation in C++
+# Neural Network Theory and Implementation in C++
 
 
-### Abstract
+## Abstract
 
 This document presents a comprehensive overview of the design, theory, and implementation of a neural network. The aim is to provide a detailed exposition of the neural network architecture, including forward and backward propagation mechanisms, loss calculation, and training processes. This document integrates theoretical concepts with practical implementation using C++.
 
-### Table of Contents
+## Table of Contents
 
 1. [Introduction](#introduction)
 2. [Neural Network Architecture](#neural-network-architecture)
@@ -32,11 +32,11 @@ This document presents a comprehensive overview of the design, theory, and imple
 
 ---
 
-### 1. Introduction
+##  Introduction
 
 Neural networks are powerful tools for machine learning, capable of modeling complex relationships and making predictions based on data. This document elucidates the design and implementation of a feedforward neural network with two hidden layers, focusing on theoretical foundations and practical coding aspects in C++.
 
-### 2. Neural Network Architecture
+## Neural Network Architecture
 
 #### Input Layer
 
@@ -79,7 +79,7 @@ Neural networks are powerful tools for machine learning, capable of modeling com
   - **Weighted Sum**: \( Z_{\text{output}} = A_2 \cdot w_{\text{output}} + b_{\text{output}} \)
   - **Activation Function**: Linear function \( \text{Output} = Z_{\text{output}} \)
 
-### 3. Activation Functions
+## Activation Functions
 
 #### ReLU Activation Function
 
@@ -91,14 +91,14 @@ Neural networks are powerful tools for machine learning, capable of modeling com
 - **Function**: \( \text{Linear}(x) = x \)
 - **Derivative**: Always returns 1.
 
-### 4. Loss Calculation
+## Loss Calculation
 
 #### Mean Squared Error (MSE)
 
 - **Definition**: Measures the average squared difference between predicted values and actual values.
 - **Formula**: \( \text{Loss} = \frac{1}{2} ( \text{actual} - \text{prediction} )^2 \)
 
-### 5. Backpropagation
+## Backpropagation
 
 Backpropagation is a fundamental algorithm in training neural networks, designed to compute the gradient of the loss function with respect to each weight in the network. This process is essential for optimizing the network's parameters through gradient descent. The key idea behind backpropagation is the systematic application of the Chain Rule to propagate the error gradient from the output layer back through each preceding layer.
 
@@ -129,7 +129,7 @@ Backpropagation is a fundamental algorithm in training neural networks, designed
   - \( w_1 = w_1 - \text{learning\_rate} \cdot \frac{dL}{dw_1} \)
   - \( b_1 = b_1 - \text{learning\_rate} \cdot \frac{dL}{db_1} \)
 
-### 6. Training Process
+## Training Process
 
 1. **Initialize Network**: Set up the architecture with initial weights and biases.
 2. **Forward Pass**: Compute predictions by propagating inputs through the network.
@@ -137,12 +137,12 @@ Backpropagation is a fundamental algorithm in training neural networks, designed
 4. **Backpropagation**: Update weights and biases to minimize the loss.
 5. **Iteration**: Repeat the process for a predefined number of epochs or until convergence.
 
-### 7. Model Evaluation
+## Model Evaluation
 
 - **Accuracy Measurement**: Evaluate the trained network on test data to assess performance using metrics like accuracy, precision, and recall.
 
 
-### 8. Implementation
+## Implementation
 
 #### Code Overview
 
@@ -165,6 +165,6 @@ The provided C++ code implements a feedforward neural network with two hidden la
 - **Training**: The model is trained over 10,000 epochs with a learning rate of 0.01.
 - **Evaluation**: Predictions are saved to a file for each epoch to track model performance. This file can then be parsed to get data for each epoch, and plotted with matplotlib in python.
 
-### 9. Conclusion
+## Conclusion
 
 This document provides a detailed theoretical and practical guide to neural network design and implementation. The integration of theoretical concepts with practical coding in C++ offers a comprehensive understanding of neural network operations and training mechanisms. Neural networks play a pivotal role in modern machine learning, and understanding their implementation helps in harnessing their full potential for various applications.
