@@ -162,7 +162,7 @@ The provided C++ code implements a feedforward neural network with two hidden la
 #### Training and Evaluation
 
 - **Training**: The model is trained over 10,000 epochs with a learning rate of 0.01.
-- **Evaluation**: Predictions are saved to a file for each epoch to track model performance.
+- **Evaluation**: Predictions are saved to a file for each epoch to track model performance. This file can then be parsed to get data for each epoch, and plotted with matplotlib in python.
 
 ### 9. Conclusion
 
