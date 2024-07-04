@@ -2,6 +2,7 @@
 #include <vector>
 #include <cmath>
 #include <fstream> // For file operations
+#include <random>
 
 constexpr int layer_one_units = 10;
 constexpr int layer_two_units = 10;
@@ -41,12 +42,21 @@ public:
     // Initialize weights and biases with random values
     void init_weights_biases()
     {
-        srand((unsigned)time(0)); // Seed random number generator
+        // Create a random device and Mersenne Twister random number generator
+        std::random_device rd;
+        std::mt19937 gen(rd());
+
+        // Define a distribution in the range [-1, 1]
+        std::uniform_real_distribution<> dis(-1.0, 1.0);
+
+        // Initialize weights with random values in the range [-1, 1]
         for (int i = 0; i < InputSize; ++i)
             for (int j = 0; j < OutputSize; ++j)
-                weights[i][j] = ((double)rand() / RAND_MAX) * 2 - 1; // Initialize with values in range [-1, 1]
+                weights[i][j] = dis(gen);
+
+        // Initialize biases with random values in the range [-1, 1]
         for (int j = 0; j < OutputSize; ++j)
-            biases[j] = ((double)rand() / RAND_MAX) * 2 - 1; // Initialize biases similar to weights
+            biases[j] = dis(gen);
     }
 
     // Forward pass through the layer --> A(∑x.w + b)
