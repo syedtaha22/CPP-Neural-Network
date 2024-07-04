@@ -1,7 +1,3 @@
-To ensure that LaTeX renders properly on GitHub, you should use plain text or alternative formats such as Markdown for mathematical expressions, as GitHub does not natively support LaTeX in Markdown files. Instead of LaTeX, you can use inline Markdown or render images of the equations. Here's the revised version of your document using Markdown formatting for equations and general text formatting:
-
----
-
 # Neural Network Theory and Implementation in C++
 
 ## Abstract
